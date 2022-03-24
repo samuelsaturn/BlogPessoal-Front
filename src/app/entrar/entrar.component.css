@@ -1,0 +1,7 @@
+#img-bg {
+    background-image: url('https://media4.giphy.com/media/fTz2gJRh37GpDaiiyD/giphy.gif?cid=790b76116a6e70214784e4d017048414108a4d721bc1e5ca&rid=giphy.gif&ct=g');
+    min-height: 615px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

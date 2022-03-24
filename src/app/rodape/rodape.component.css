@@ -1,0 +1,27 @@
+.social-icon {
+    list-style: none;
+    padding: 0;
+}
+
+ul.social-icon li {
+    display: inline;
+    margin: 0;
+    padding: 10px;
+    font-size: 40px;
+}
+
+.fa {
+    color: white;
+}
+
+.fa-github:hover {
+    color: black;
+}
+
+.fa-linkedin-square:hover {
+    color: #0a66c2;
+}
+
+.fa-whatsapp:hover {
+    color: #58f777;
+}
