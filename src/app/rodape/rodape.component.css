@@ -16,7 +16,21 @@ ul.social-icon li {
 }
 
 .bg-preto {
-    background-color: #111;
+    background: rgba(0, 0, 0, 1);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(13, 16, 71, 1) 68%
+    );
+}
+
+.bmo {
+    width: 8vw;
+    padding: 10px;
+}
+
+.gen {
+    height: 10vh;
 }
 
 

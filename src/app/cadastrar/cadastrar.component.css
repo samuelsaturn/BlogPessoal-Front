@@ -45,6 +45,38 @@ h1 {
   }
 }
 
-.botao {
-  font-family: 'Roboto Mono', monospace;
+.neon-red {
+  text-decoration: none;
+  color: #FF3131;
+  border: #FF3131 3px solid;
+  
+  box-shadow: inset 0 0 16px 0 #FF3131, 0 0 16px 0 #FF3131;
+  text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 16px 0, lightness);
+}
+
+.neon-green {
+  text-decoration: none;
+  color: #39ff14;
+  border: #39ff14 3px solid;
+  
+  box-shadow: inset 0 0 16px 0 #39ff14, 0 0 16px 0 #39ff14;
+  text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 16px 0, lightness);
+}
+
+.neon-red:hover {
+  text-decoration: none;
+  color: #FF3131;
+  border: #FF3131 3px solid;
+  
+  box-shadow: inset 0 0 32px 0 #FF3131, 0 0 32px 0 #FF3131;
+  text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness);
+}
+
+.neon-green:hover {
+  text-decoration: none;
+  color: #39ff14;
+  border: #39ff14 3px solid;
+  
+  box-shadow: inset 0 0 32px 0 #39ff14, 0 0 32px 0 #39ff14;
+  text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness);
 }
