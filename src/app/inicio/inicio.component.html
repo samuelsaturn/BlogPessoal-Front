@@ -1,87 +1,143 @@
 <body>
-  
 
-<div class="container-fluid bg">
-  <div class="container">
-    <div class="row d-flex align-items-center">
-      <div class="col-md-6 text-light text-center mt">
-        <h1>Bem vinde ao meu Blog Pessoal</h1>
-        <h4>Pode criar alguma postagem aí</h4>
 
-        <div class="d-flex justify-content-center mt-4">
-          <button class="btn btn-outline-danger mr-5" data-toggle="modal" data-target="#exampleModal">Nova
-            Postagem</button>
-          <button class="btn btn-outline-danger">Ver postagens</button>
+  <div class="container-fluid bg">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6 text-light text-center mt">
+          <h1>Bem vinde ao meu Blog Pessoal</h1>
+          <h4>Pode criar alguma postagem aí</h4>
+
+          <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-outline-danger mr-5" data-toggle="modal" data-target="#exampleModal">Nova
+              Postagem</button>
+            <button class="btn btn-outline-danger">Ver postagens</button>
+          </div>
         </div>
+        <div class="col-md-6"></div>
       </div>
-      <div class="col-md-6"></div>
     </div>
   </div>
-</div>
 
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nova Postagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-        <div class="form-group">
-          <label for="">Titulo</label>
-          <input class="form-control" type="text">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nova Postagem</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
 
-        <div class="form-group">
-          <label for="">Texto</label>
-          <textarea class="form-control" name="texto" id="texto" cols="30" rows="5"></textarea>
-        </div>
+          <div class="form-group">
+            <label for="">Titulo</label>
+            <input [(ngModel)]="postagem.titulo" class="form-control" type="text">
+          </div>
 
-        <div class="form-group">
-          <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink="/tema" >cadastre um novo</a>: </label>
-          <select class="form-control mt-3" name="tema" id="tema">
-            <option selected disabled value="">Temas</option>
+          <div class="form-group">
+            <label for="">Texto</label>
+            <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto" id="texto" cols="30"
+              rows="5"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:
+            </label>
+            <select class="form-control mt-3" name="tema" id="tema" [(ngModel)]="idTema" (change)="findByIdTema()">
+              <option *ngFor="let tema of listaTemas" value="{{tema.id}}">{{tema.descricao}}</option>
             </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"
+            (click)="publicar()">Postar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-dark">
+    <div class="container bg-dark">
+      <ul class="nav nav-tabs d-flex justify-content-center pt-4" id="myTab" role="tablist">
+
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
+            aria-controls="todasPostagens" aria-selected="false">Todas Postagens</a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <a (click)="findByIdUsuario()" class="nav-link" id="minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
+            aria-controls="minhasPostagens" aria-selected="true">Minhas Postagens</a>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="postagensTema-tab" data-toggle="tab" href="#postagensTema" role="tab"
+            aria-controls="postagensTema" aria-selected="false">Postagens por Tema</a>
+        </li>
+
+      </ul>
+      <div class="tab-content mt-5" id="myTabContent">
+
+        <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="todasPostagens-tab">
+
+          <div class="card-columns">
+            <div class="card text-center" *ngFor="let postagem of listaPostagens">
+              <div class="card-body">
+                <h5 class="card-title m-0">{{postagem.titulo}}</h5>
+                <small class="text-muted">Tema: {{postagem.tema.descricao}}</small>
+                <p class="card-text mt-3">{{postagem.texto}}</p>
+                <p class="card-text"><small class="text-muted">{{postagem.data | date:'dd/MM/yyyy'}} às {{postagem.data
+                    | date: 'HH:mm'}}</small></p>
+                <p class="card-text"><small class="text-muted">by: {{postagem.usuario.nome}}</small></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="tab-pane fade show active" id="minhasPostagens" role="tabpanel"
+          aria-labelledby="minhasPostagens-tab">
+
+          <div class="card-columns">
+            <div class="card text-center" *ngFor="let postagem of usuario.postagem">
+              <div class="card-body">
+                <h5 class="card-title m-0">{{postagem.titulo}}</h5>
+                <small class="text-muted">Tema: {{postagem.tema.descricao}}</small>
+                <p class="card-text mt-3">{{postagem.texto}}</p>
+                <p class="card-text"><small class="text-muted">{{postagem.data | date:'dd/MM/yyyy'}} às {{postagem.data
+                    | date: 'HH:mm'}}</small></p>
+                <p class="card-text"><small class="text-muted">by: {{usuario.nome}}</small></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div class="tab-pane fade" id="postagensTema" role="tabpanel" aria-labelledby="postagensTema-tab">
+
+          <div class="card-columns" *ngFor="let tema of listaTemas">
+            <div class="card text-center" *ngFor="let postagem of tema.postagem">
+              <div class="card-body">
+                <h5 class="card-title m-0">{{postagem.titulo}}</h5>
+                <p class="card-text mt-3">{{postagem.texto}}</p>
+                <p class="card-text"><small class="text-muted">{{postagem.data | date:'dd/MM/yyyy'}} às {{postagem.data | date: 'HH:mm'}}</small></p>
+                <p class="card-text"><small class="text-muted">by: {{postagem.usuario.nome}}</small></p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary">Postar</button>
-      </div>
     </div>
   </div>
-</div>
-
-<div class="container-fluid bg-dark">
-  <div class="container bg-dark">
-    <ul class="nav nav-tabs d-flex justify-content-center pt-4" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
-          aria-controls="minhasPostagens" aria-selected="true">Minhas Postagens</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link" id="todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
-          aria-controls="todasPostagens" aria-selected="false">Todas Postagens</a>
-      </li>
-      <li class="nav-item" role="presentation">
-        <a class="nav-link" id="postagensTema-tab" data-toggle="tab" href="#postagensTema" role="tab"
-          aria-controls="postagensTema" aria-selected="false">Postagens por Tema</a>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="minhasPostagens" role="tabpanel" aria-labelledby="minhasPostagens-tab">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit, quod nobis blanditiis doloremque perspiciatis harum consequuntur odit iste ab labore quibusdam odio quam nihil dolorem eveniet aliquam et. Magnam, natus. Autem necessitatibus facere inventore quasi aperiam rem cumque vitae enim illo nihil culpa praesentium, mollitia quis porro nam quia quas ducimus maxime quidem cupiditate! Saepe eaque dolor, atque aliquam nemo veniam consequuntur, vero dignissimos asperiores quidem ducimus nulla, quibusdam hic. Dolorum consequatur rem excepturi vel perferendis eum quidem alias dicta obcaecati, reprehenderit quis qui voluptatem aut dolorem voluptas doloribus veritatis quisquam sit ratione id harum ut earum laboriosam! Amet, blanditiis.</div>
-      <div class="tab-pane fade" id="todasPostagens" role="tabpanel" aria-labelledby="todasPostagens-tab">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere autem est vel velit necessitatibus consequatur aspernatur non nesciunt, saepe illum architecto provident qui ducimus nostrum, rem odio? Pariatur, quas facilis quod, minus unde dicta quaerat aliquid optio laboriosam sequi adipisci expedita delectus sed culpa rem? Animi blanditiis id, similique eveniet voluptas soluta quod doloribus sed laboriosam iure, cumque, earum sequi illo ex ullam ratione iste dolore quos fuga nesciunt obcaecati vel inventore! Voluptas cum pariatur, incidunt tempore asperiores voluptatem veritatis molestiae iste odit veniam atque dignissimos eaque ea adipisci eveniet quas? Repudiandae in ipsam qui minima exercitationem mollitia doloremque numquam?</div>
-      <div class="tab-pane fade" id="postagensTema" role="tabpanel" aria-labelledby="postagensTema-tab">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, nisi? Quam culpa similique repellat magni nulla odio enim, maxime laborum totam, facere sapiente voluptates, impedit odit error vero consequuntur nam. Officia eos tempora consequuntur accusantium. Consequuntur nesciunt, perferendis natus fugiat minima libero, ex deserunt ducimus, quis voluptas placeat? Quam saepe provident beatae at nobis tenetur hic, natus blanditiis libero dolore expedita nulla ea voluptas totam iure sequi ducimus ipsam! Minima possimus iusto facilis corporis officia necessitatibus nobis! Provident eligendi necessitatibus repellat temporibus saepe quaerat? Est dolore vero officia possimus, adipisci illum? Quia quae dignissimos, debitis mollitia officia voluptatum sit praesentium.</div>
-    </div>
-  </div>
-</div>
 
 </body>
