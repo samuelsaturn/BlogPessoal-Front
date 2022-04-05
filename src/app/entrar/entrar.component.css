@@ -1,5 +1,5 @@
 #img-bg {
-    background-image: url('https://media4.giphy.com/media/fTz2gJRh37GpDaiiyD/giphy.gif?cid=790b76116a6e70214784e4d017048414108a4d721bc1e5ca&rid=giphy.gif&ct=g');
+    background-image: url('https://i.pinimg.com/originals/b6/ee/ca/b6eecaa83cc89622f9a2597b65023ad4.gif');
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,9 +11,15 @@ h1 {
 }
 
 .bg {
+  background-color: rgba(10,23,55,0.5);
+  border-radius: 16px;
+  padding: 3rem;
+}
+
+/* .bg {
     background: rgb(13,16,71);
     background: linear-gradient(0deg, rgba(13,16,71,1) 0%, rgba(0,0,0,1) 58%);
-}
+} */
 
 .animate-charcter
 {
