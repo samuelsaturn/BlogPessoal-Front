@@ -113,6 +113,8 @@
                 <p class="card-text"><small class="text-muted">{{postagem.data | date:'dd/MM/yyyy'}} às {{postagem.data
                     | date: 'HH:mm'}}</small></p>
                 <p class="card-text"><small class="text-muted">by: {{usuario.nome}}</small></p>
+                <a class="text-info mr-3" href="" [routerLink]="['/postagem-edit', postagem.id]">Edit</a>
+                <a class="text-danger" href="" [routerLink]="['/postagem-delete', postagem.id]">Apagar</a>
               </div>
             </div>
           </div>

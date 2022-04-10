@@ -24,6 +24,10 @@ export class AuthService {
     }
   }
 
+  atualizar(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>("https://blogsaturn.herokuapp.com/usuarios/atualizar", usuario, this.token)
+  }
+
   entrar(UsuarioLogin: UsuarioLogin): Observable<UsuarioLogin>{
     return this.http.post<UsuarioLogin>('https://blogsaturn.herokuapp.com/usuarios/logar', UsuarioLogin)
   }

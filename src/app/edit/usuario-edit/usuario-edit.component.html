@@ -1,0 +1,48 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-9 bg mt">
+                    <h1 class="text-center mb-3 animate-charcter">Atualizar meu usuário</h1>
+
+                    <form>
+                        <div class="form-group">
+                            <input [(ngModel)]="usuario.nome" class="form-control" type="text" placeholder="Nome*" name="nome" >
+                        </div>
+
+                        <div class="form-group">
+                            <input [(ngModel)]="usuario.usuario" class="form-control" type="email" placeholder="E-mail*" name="email">
+                        </div>
+
+                        <div class="form-group">
+                            <input (input)="confirmSenha($event)" class="form-control" type="password" placeholder="Senha*" name="senha">
+                        </div>
+
+                        <div class="form-group">
+                            <input [(ngModel)]="usuario.senha" class="form-control" type="password" placeholder="Confirmar senha*" name="ConfirmSenha">
+                        </div>
+
+                        <div class="form-group">
+                            <input [(ngModel)]="usuario.foto" class="form-control" type="text" placeholder="Foto*" name="foto">
+                        </div>
+                        
+                        <div>
+                            <select class="form-control" name="selecionar" id="selecionar" (change)="tipoUser($event)" name="tipo">
+                                <option value="" selected disabled>Selecione um tipo de usuário*</option>
+                                <option value="adm">Administrador</option>
+                                <option value="normal">Normal</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-4">
+                            <a routerLink="/inicio"><button type="submit" class="btn mr-5 neon-red">Cancelar</button></a>
+                            
+                            <button type="submit" class="btn neon-green" (click)="atualizar()">Atualizar</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
