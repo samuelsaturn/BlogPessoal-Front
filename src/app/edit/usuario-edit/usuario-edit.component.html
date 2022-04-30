@@ -15,11 +15,15 @@
                         </div>
 
                         <div class="form-group">
-                            <input (input)="confirmSenha($event)" class="form-control" type="password" placeholder="Senha*" name="senha">
+                            <input [(ngModel)]="usuario.senha" class="form-control" type="password" placeholder="Senha*" name="senha">
                         </div>
 
                         <div class="form-group">
-                            <input [(ngModel)]="usuario.senha" class="form-control" type="password" placeholder="Confirmar senha*" name="ConfirmSenha">
+                            <input (input)="confirmSenha($event)"  class="form-control" type="password" placeholder="Confirmar senha*" name="ConfirmSenha">
+                        </div>
+
+                        <div class="form-group">
+                            <input [(ngModel)]="usuario.biografia" class="form-control" type="string" placeholder="Biografia" name="biografia">
                         </div>
 
                         <div class="form-group">

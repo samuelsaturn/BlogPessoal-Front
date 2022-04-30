@@ -20,6 +20,12 @@ export class TemaService {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+  }
+
   getByIdTema(id: number): Observable<Tema>{
     return this.http.get<Tema>(`https://blogsaturn.herokuapp.com/tema/${id}`, this.token)
   }

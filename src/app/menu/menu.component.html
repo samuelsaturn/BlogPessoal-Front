@@ -6,14 +6,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto d-flex align-items-center">
-      <li class="nav-item active">
-        <img src="{{foto}}" alt="Imagem de Perfil" height="50" width="50" class="rounded-circle img-fluid">
-      </li>
+      <a routerLink="/inicio" class="nav-item active">
+        <img  src="../../assets/img/coffe star logo.gif" alt="Imagem de Perfil" height="50" width="50" class="rounded-circle img-fluid">
+      </a>
       <li class="nav-item pl-3">
-        <p class="m-0 text-light">Bem vinde, {{nome}}
-          <a class="text-light" [routerLink]="['/usuario-edit', id]">
-            <i class="fa fa-pencil ml-1" aria-hidden="true"></i>
-          </a>
+        <p class="m-0 text-light font textoneon1">Coffe Stargazing
         </p>
       </li>
     </ul>

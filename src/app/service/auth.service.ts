@@ -24,6 +24,10 @@ export class AuthService {
     }
   }
 
+  getByIdUsuario(id: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`https://blogsaturn.herokuapp.com/usuarios/${id}`, this.token)
+  }
+
   atualizar(usuario: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>("https://blogsaturn.herokuapp.com/usuarios/atualizar", usuario, this.token)
   }
@@ -34,10 +38,6 @@ export class AuthService {
 
   cadastrar(usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>('https://blogsaturn.herokuapp.com/usuarios/cadastrar', usuario)
-  }
-
-  getByIdUsuario(id:number): Observable<Usuario>{
-    return this.http.get<Usuario>(`https://blogsaturn.herokuapp.com/usuarios/${id}`, this.token)
   }
 
   logado(){

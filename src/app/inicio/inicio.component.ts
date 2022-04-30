@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
+import { UsuarioLogin } from '../model/UsuarioLogin';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -14,6 +15,11 @@ import { TemaService } from '../service/tema.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+
+  nome = environment.nome
+  foto = environment.foto
+  id = environment.id
+  
 
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
@@ -39,9 +45,17 @@ export class InicioComponent implements OnInit {
       alert('Sua sessão expirou, faça o login novamente')
       this.route.navigate(['/entrar'])
     }
-    this.authService.refreshToken()
-    this.getAllTemas()
-    this.getAllPostagens()
+    this.getAllTemas();
+    this.getAllPostagens();
+    this.authService.refreshToken();
+    this.temaService.refreshToken();
+    this.findByIdUsuario();
+  }
+
+  findByIdUsuario(){
+    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
+      this.usuario = resp
+    })
   }
 
   getAllTemas(){
@@ -62,12 +76,6 @@ export class InicioComponent implements OnInit {
     })
   }
 
-  findByIdUsuario(){
-    this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
-      this.usuario = resp
-    })
-  }
-
   publicar(){
     this.tema.id = this.idTema
     this.postagem.tema =  this.tema
@@ -77,9 +85,11 @@ export class InicioComponent implements OnInit {
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert("Postagem realizada com sucesso!")
-      this.postagem = new Postagem
-      this.getAllPostagens()
+      alert("Postagem realizada com sucesso!");
+      this.getAllPostagens();
+      this.getAllTemas();
+      this.findByIdUsuario();
+      this.postagem = new Postagem();
     })
   }
 }

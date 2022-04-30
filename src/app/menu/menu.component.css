@@ -1,3 +1,13 @@
 .bg {
     background-color: #131515;
 }
+
+.font {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.textoneon1{
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 2vw #1100ff, 0 0 2vw #1100ff, 0 0 2vw #1100ff;
+}

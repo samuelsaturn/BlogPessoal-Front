@@ -25,7 +25,8 @@ ul.social-icon li {
 }
 
 .bmo {
-    width: 8vw;
+    max-width: 8vw;
+    min-width: 8vw;
     padding: 10px;
 }
 

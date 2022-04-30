@@ -15,6 +15,7 @@ export class UsuarioEditComponent implements OnInit {
   idUsuario: number
   confirmarSenha: string
   tipoUsuario: string
+  
 
 
   constructor(
@@ -30,10 +31,11 @@ export class UsuarioEditComponent implements OnInit {
     if(environment.token == ''){
       alert('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/entrar'])
+      console.log(this.confirmSenha)
     }
-
     this.idUsuario = this.route.snapshot.params['id']
     this.findByIdUsuario(this.idUsuario)
+    
   }
 
   confirmSenha(event: any) {
@@ -57,6 +59,7 @@ export class UsuarioEditComponent implements OnInit {
           this.usuario = resp
           environment.nome = ""
           environment.foto = ""
+          environment.senha = ""
           environment.token = ""
           environment.id = 0
           this.router.navigate(["/entrar"])
@@ -75,7 +78,7 @@ export class UsuarioEditComponent implements OnInit {
     this.authService.getByIdUsuario(id).subscribe((resp: Usuario) =>
     {
       this.usuario = resp
+      this.usuario.senha = environment.senha
     })
   }
-
 }
