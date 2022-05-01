@@ -1,19 +1,21 @@
-.fs-47 {
-    font-size: 47px;
-}
-
-.bg {
-    background-color: var(--color-primary);
-}
-
 .img-bg {
     background-image: url("https://i.pinimg.com/originals/2a/e7/49/2ae74984da2f572285f62201f032dac6.jpg");
-
 }
 
-.text-color1 {
+.text-pixel {
     font-family: 'Press Start 2P', cursive;
+}
+
+.font-32 {
     font-size: 32px;
+}
+
+.font-24 {
+    font-size: 22px;
+}
+
+.font-10 {
+    font-size: 10px;
 }
 
 .textoneon1 {
@@ -22,13 +24,17 @@
     text-shadow: 1vw 1vw 1vw #000, 0 0 2vw #1100ff, 0 0 2vw #1100ff, 0 0 2vw #1100ff;
 }
 
-
-
-.text-color2 {
-    color: rgba(45, 3, 80, 0.418);
+.textoneon2 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 2vw #f1b, 0 0 2vw #f1b, 0 0 2vw #f1b;
 }
 
-/* css trecho */
+.textoneon3 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 1vw rgb(24, 250, 4), 0 0 1vw rgb(24, 250, 4), 0 0 1vw rgb(24, 250, 4);
+}
 
 body {
     margin-top: 20px;
@@ -112,7 +118,7 @@ body {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
 }
 
-.ttt {
+.radius-50 {
     width: 50px;
     border-radius: 50%;
 }
@@ -123,11 +129,20 @@ body {
 }
 
 .bg-gray {
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(207, 199, 199);
+}
+
+.bg-card {
+    background-color: #1b1d1d;
 }
 
 .radius {
-    border-radius: 12px;
+    border-radius: 8px;
+
+}
+
+.radius-profile {
+    border-radius: 0 0 8px 8px !important;
 }
 
 .fa-ellipsis-h {
@@ -161,7 +176,7 @@ body {
     color: rgb(201, 201, 201);
 }
 
-.transparente {
+.bg-black {
     background-color: #131515;
 }
 
@@ -193,4 +208,34 @@ body {
 
     box-shadow: inset 0 0 16px 0 #1F51FF, 0 0 16px 0 #1F51FF;
     text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 16px 0, lightness);
+}
+
+.b-post:hover {
+    text-decoration: none;
+    color: #1F51FF;
+    border: #1F51FF 3px solid;
+    width: 150px;
+
+    box-shadow: inset 0 0 32px 0 #1F51FF, 0 0 32px 0 #1F51FF;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness);
+}
+
+.shadow {
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px !important;
+    border-radius: 12px !important;
+}
+
+a.active {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgb(24, 250, 4);
+}
+
+.b-none {
+    border: none;
+}
+
+@media(max-width: 750px) {
+    .nav-mb {
+        margin-bottom: 10px;
+    }
 }

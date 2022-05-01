@@ -6,7 +6,7 @@
           <div style="
               background-image: url(../../assets/img/background.webp);
             " class="card-header"></div>
-          <div class="card-body transparente text-center">
+          <div class="card-body bg-black radius-profile text-center ">
             <img src="{{foto}}" width="250px" height="200px" class="card-profile-img" />
             <h3 class="mb-2 text-light">{{nome}}</h3>
             <p class="text-align-center text-light mb-1">Biografia</p>
@@ -17,11 +17,11 @@
               <a class="text-light" [routerLink]="['/usuario-edit', id]">
                 Editar Usuário <a class="text-secondary" [routerLink]="['/usuario-edit', id]">
                   <i class="fa fa-pencil ml-1" aria-hidden="true"></i>
-                </a> 
-              </a> 
+                </a>
+              </a>
             </div>
-            
-            <button class="btn mt-4 mr-2 w-75 rounded-pill neon-blue" data-toggle="modal" data-target="#novaPostagem">
+
+            <button class="btn mt-4 mr-2 w-75 rounded-pill neon-blue b-post" data-toggle="modal" data-target="#novaPostagem">
               Nova postagem
             </button>
           </div>
@@ -32,13 +32,10 @@
       <!--Time Line-->
       <div class="col-lg-8">
         <div class="card">
-          <div class="card-header rounded transparente">
-            <!--Seja bem vinde/ Postagem-->
+          <div class="card-header rounded bg-black b-none">
             <div class="col-md-12">
-              <h1 class="fs-47 text-color1 textoneon1 mt-3">Seja bem vinde!</h1>
-              <h5 class="fs-18">
-
-              </h5>
+              <h1 class="text-pixel font-32 textoneon1 mt-3">Seja bem vinde!</h1>
+              <h4 class="text-pixel textoneon1 mt-3 font-24">O que deseja tomar hoje?</h4>
             </div>
 
             <!-- Modal -->
@@ -85,6 +82,17 @@
                         </option>
                       </select>
                     </div>
+
+                    <div class="form-group">
+                      <label for="">O que deseja beber hoje?</label>
+                      <select class="form-control borda" name="bebida" id="bebida">
+                        <option selected disabled value="">Escolha uma bebida</option>
+                        <option value="">Café</option>
+                        <option value="">Chá</option>
+                        <option value="">Coca-Cola</option>
+                      </select>
+                    </div>
+
                   </div>
                   <div class="modal-footer borda">
                     <button type="button" class="btn cancelar mr-2" data-dismiss="modal">
@@ -102,14 +110,14 @@
             <!--Nav postagens-->
             <div class="container mb-5 mt-5" id="postagens">
               <nav>
-                <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens-tab"
+                <div class="nav nav-pills d-flex justify-content-center" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link bg-pills nav-mb active text-light text-pixel font-10 textoneon3" id="nav-todasPostagens-tab"
                     data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens"
                     aria-selected="true">Todas as postagens</a>
-                  <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab"
+                  <a class="nav-item nav-link nav-mb text-light text-pixel font-10 textoneon3" id="nav-minhasPostagens-tab"
                     data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens"
                     aria-selected="false">Minhas postagens</a>
-                  <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagensTema-tab"
+                  <a class="nav-item nav-link nav-mb text-light text-pixel font-10 textoneon3" id="nav-postagensTema-tab"
                     data-toggle="tab" href="#postagensTema" role="tab" aria-controls="nav-postagensTema"
                     aria-selected="false">Postagens por tema</a>
                 </div>
@@ -122,28 +130,42 @@
                     <div class="col-md-12" *ngFor="let postagem of listaPostagens">
                       <div class="rounded mb-5">
                         <div class="list-group card-list-group">
-                          <div class="list-group-item bg-dark py-5">
-                            <div class="media">
-                              <div class="media-object avatar avatar-md mr-3 ">
-                                <img class="ttt" src="{{postagem.usuario.foto}}" alt="foto">
+                          <div class="list-group-item bg-card shadow py-5">
+                            <div class="media d-flex flex-column">
+                              <div class="row">
+                                  <div class="media-object avatar avatar-md ml-3 mr-3 ">
+                                    <img class="radius-50" src="{{postagem.usuario.foto}}" alt="foto">
+                                  </div>
+                                    <div class="media-body">
+                                      <div class="media-heading">
+                                        <h4 class="text-light m-0">{{postagem.usuario.nome}}</h4>
+                                        <small class=" text-muted">{{postagem.data | date: 'dd/MM/yyyy'}} às
+                                          {{postagem.data | date:
+                                          'HH:mm'}}</small>
+                                      </div>
+                                  </div>
                               </div>
-                              <div class="media-body">
-                                <div class="media-heading">
-                                  <small class="float-right text-light">{{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data | date:
-                                    'HH:mm'}}</small>
-                                  <h4 class="text-light">{{postagem.usuario.nome}}</h4>
-                                </div>
-                                <div class="font-weight-bold font-mariele-b text-break">
-                                  <h5 class="mt-3 text-light">{{postagem.titulo}}</h5>
-                                </div>
-                                <div class="text-small text-muted text-break">
-                                  <p class="text-bio">{{postagem.texto}}</p>
-                                </div>
-                                <div class="text-muted text-small text-break">
-                                  <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">
-                                </div>
-                                <div class='align-self-end'>
-                                  <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true"> {{postagem.tema.descricao}}</i>
+                              <div class="row">
+                                <div class="d-flex flex-column justify-content-center p-3">
+                                  <div class="font-weight-bold font-mariele-b text-break">
+                                    <h5 class="mt-2 text-light">{{postagem.titulo}}</h5>
+                                  </div>
+                                  <div class="text-small text-muted text-break">
+                                    <p class="text-bio">{{postagem.texto}}</p>
+                                  </div>
+                                  <div class="text-muted text-small text-break">
+                                    <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">
+                                  </div>
+                                  <div class="d-flex justify-content-start">
+                                    <div class='align-self-end'>
+                                      <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
+                                        {{postagem.tema.descricao}}</i>
+                                    </div>
+                                    <!-- <div class='align-self-end'>
+                                      <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
+                                        {{}}</i>
+                                    </div> -->
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -158,20 +180,22 @@
                   aria-labelledby="nav-minhasPostagens-tab">
                   <div class="row d-flex flex-wrap mt-3">
                     <div class="col-md-12" *ngFor="let postagem of usuario.postagem">
-                      <div class="border rounded mb-5">
+                      <div class="rounded mb-5">
                         <div class="list-group card-list-group">
-                          <div class="list-group-item bg-dark py-5">
+                          <div class="list-group-item bg-card shadow py-5">
                             <div class="d-flex justify-content-end mb-2">
-                              <a class="text-primary mr-3" href="" [routerLink]="['/postagem-edit', postagem.id]">Editar</a>
+                              <a class="text-primary mr-3" href=""
+                                [routerLink]="['/postagem-edit', postagem.id]">Editar</a>
                               <a class="text-danger" href="" [routerLink]="['/postagem-delete', postagem.id]">Apagar</a>
                             </div>
                             <div class="media">
                               <div class="media-object avatar avatar-md mr-3 ">
-                                <img class="ttt" src="{{usuario.foto}}" alt="foto">
+                                <img class="radius-50" src="{{usuario.foto}}" alt="foto">
                               </div>
                               <div class="media-body">
                                 <div class="media-heading">
-                                  <small class="float-right text-light">{{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data | date:
+                                  <small class="float-right text-light">{{postagem.data | date: 'dd/MM/yyyy'}} às
+                                    {{postagem.data | date:
                                     'HH:mm'}}</small>
                                   <h4 class="text-light">{{usuario.nome}}</h4>
                                 </div>
@@ -201,28 +225,27 @@
                 <div class="tab-pane fade" id="postagensTema" role="tabpanel" aria-labelledby="nav-postagensTema-tab">
                   <div class="row d-flex flex-wrap mt-3">
                     <div class="col-md-12" *ngFor="let tema of listaTemas">
-                      <h2 class="text-center font-mariele-b mb-4 mt-2">{{ tema.descricao }}</h2>
+                      <h2 class="text-center text-light text-pixel textoneon2 mb-4 mt-2">{{ tema.descricao }}</h2>
                       <div *ngFor="let postagem of tema.postagem" class="text-start">
-                        <div class="border rounded mb-5">
+                        <div class="rounded mb-5">
                           <div class="list-group card-list-group">
-                            <div class=" bg-dark py-5">
+                            <div class="list-group-item bg-card shadow py-5">
                               <div class="media">
                                 <div class="media-object avatar avatar-md mr-3 ">
-                                  <img class="ttt" src="{{postagem.usuario.foto}}" alt="foto">
+                                  <img class="radius-50" src="{{postagem.usuario.foto}}" alt="foto">
                                 </div>
                                 <div class="media-body">
                                   <div class="media-heading">
-                                    <small class="float-right">{{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data | date:
-
-                                        'HH:mm'}}</small>
-           
-                        <h4>{{postagem.usuario.nome}}</h4>
+                                    <small class="float-right text-light">{{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data
+                                      | date:
+                                      'HH:mm'}}</small>
+                                    <h4 class="text-light">{{postagem.usuario.nome}}</h4>
                                   </div>
                                   <div class="font-weight-bold font-mariele-b text-break">
-                                    <h5 class="mt-3">{{postagem.titulo}}</h5>
+                                    <h5 class="mt-3 text-light">{{postagem.titulo}}</h5>
                                   </div>
                                   <div class="text-small text-muted text-break">
-                                    <p>{{postagem.texto}}</p>
+                                    <p class="text-light">{{postagem.texto}}</p>
                                   </div>
                                   <div class="text-muted text-small text-break">
                                     <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">

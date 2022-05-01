@@ -8,30 +8,28 @@ ul.social-icon li {
     margin: 0;
     padding-right: 20px;
     font-size: 40px;
-    
 }
 
-.bg-cinza {
-    background-color: #131515;
+.font-pixel {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
 }
 
 .bg-preto {
-    background: rgba(0, 0, 0, 1);
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(13, 16, 71, 1) 68%
-    );
+    background-color: #131515;
+}
+
+.bg-cinza {
+    background-color: #1b1d1d;
 }
 
 .bmo {
-    max-width: 8vw;
-    min-width: 8vw;
+    width: 10vw;
     padding: 10px;
 }
 
 .gen {
-    height: 10vh;
+    max-height: 10vh;
 }
 
 
@@ -49,4 +47,14 @@ ul.social-icon li {
 
 .fa-whatsapp:hover {
     color: #58f777;
+}
+
+@media(max-width: 750px){
+    .bmo{
+        min-width: 120px;
+    }
+
+    .gen {
+        margin-bottom: 10px;
+    }
 }

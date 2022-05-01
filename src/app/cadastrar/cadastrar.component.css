@@ -1,13 +1,13 @@
 #img-bg {
   background-image: url(https://wallpapercave.com/wp/wp2555900.gif);
-  min-height: 100vh;
+  min-height: 100vh !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .bg {
-  background-color: rgba(17, 68, 11, 0.295);
+  background-color: rgba(36, 36, 36, 0.616);
   border-radius: 16px;
   padding: 3rem;
 }
