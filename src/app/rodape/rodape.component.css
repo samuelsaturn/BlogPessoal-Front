@@ -45,6 +45,10 @@ ul.social-icon li {
     color: #0a66c2;
 }
 
+.fa-instagram:hover {
+    color: #d1438e;
+}
+
 .fa-whatsapp:hover {
     color: #58f777;
 }

@@ -1,38 +1,74 @@
-<div class="container mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center text-secondary">Apagar Postagem</h1>
-        </div>
-    </div>
+<div id="img-bg" class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="row d-flex justify-content-center align-items-center w-100">
 
-    <div class="row">
-        <div class="col-md-12">
-            <h4 class="text-center text-secondary">Você tem certeza que deseja apagar essa postagem?</h4>
-        </div>
-    </div>
 
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title m-0">
-                        {{postagem.titulo}}
-                    </h5>
-                    <small class="text-muted">Tema: {{postagem.tema.descricao}}</small>
-                    <p class="card-text mt-3">{{postagem.texto}}</p>
-                    <p class="card-text"><small class="text-muted">
-                        {{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data | date: 'HH/mm'}}
-                    </small></p>
+        <div class="col-md-12 align-items-center">
+            <h1 class="text-center text-light mt-4 mb-3 textoneon4">Apagar Postagem</h1>
+            <h4 class="text-center text-light mt-2 mb-3 textoneon4">Você tem certeza que deseja apagar essa postagem?</h4>
+        </div>
+
+        <div class="col-md-6 h-50">
+
+        
+        <div class="tab-pane fade show h-50" id="todasPostagens" role="tabpanel"
+            aria-labelledby="nav-todasPostagens-tab">
+                <div class="rounded mb-5">
+                    <div class="list-group card-list-group">
+                        <div class="list-group-item h-50 bg-card shadow py-5">
+                            <div class="media d-flex flex-column">
+                                <div class="row">
+                                    <div class="media-object avatar avatar-md ml-3 mr-3 ">
+                                        <img class="radius-50" src="{{postagem.usuario.foto}}" alt="foto">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <h4 class="text-light m-0">{{postagem.usuario.nome}}</h4>
+                                            <small class=" text-muted">{{postagem.data | date: 'dd/MM/yyyy'}} às
+                                                {{postagem.data | date:
+                                                'HH:mm'}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="d-flex flex-column justify-content-center p-3">
+                                        <div class="font-weight-bold text-break">
+                                            <h5 class="mt-2 text-light">{{postagem.titulo}}</h5>
+                                        </div>
+                                        <div class="text-small text-muted text-break">
+                                            <p class="text-bio">{{postagem.texto}}</p>
+                                        </div>
+                                        <div class="text-muted text-small text-break">
+                                            <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">
+                                        </div>
+                                        <div class="d-flex justify-content-start">
+                                            <div class='align-self-end'>
+                                                <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
+                                                    {{postagem.tema.descricao}}</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-12 d-flex justify-content-center">
-            <button class="btn btn-danger mr-4" routerLink="/inicio">Cancelar</button>
-            <button class="btn btn-success" (click)="apagar()">Confirmar</button>
+        <div class="col-md-12 mt-3 mb-5 d-flex justify-content-center">
+            <button class="btn neon-red mr-4" routerLink="/inicio">Cancelar</button>
+            <button class="btn neon-blue" (click)="apagar()">Apagar</button>
         </div>
-        
     </div>
+    
 </div>
+
+
+<!-- <div class="row mt-5"> -->
+
+
+<!-- </div> -->
+
+
+
+
+<!-- </div> -->

@@ -1,0 +1,8 @@
+#img-bg {
+    background: rgb(255,1,1);
+    background: linear-gradient(90deg, rgba(255,1,1,0.9247898988697041) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 80%, rgba(255,1,1,0.9219887784215248) 100%);
+}
+
+.height {
+    height: 91vh;
+}

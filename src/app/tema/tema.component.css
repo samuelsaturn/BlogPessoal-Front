@@ -1,0 +1,28 @@
+#img-bg {
+    background-image: url(https://i.gifer.com/5m5h.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#img-bg2 {
+    background-image: url(https://i.gifer.com/33HO.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.linha {
+    border-bottom: 2px solid #f1b !important;
+    border-top: 2px solid #f1b !important;
+ 
+}
+
+.b-none {
+    border-top: none;
+}
+
+.margin {
+    margin-left: 100px;
+    margin-right: 100px;
+}

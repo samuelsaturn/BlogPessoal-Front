@@ -1,0 +1,17 @@
+#img-bg {
+    background: rgb(252,0,0);
+    background: radial-gradient(circle, rgba(252,0,0,1) 0%, rgba(0,0,0,1) 69%);
+}
+
+.bg-card {
+    background-color: #1b1d1d;
+}
+
+.shadow {
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px !important;
+    border-radius: 12px !important;
+}
+
+.h-50 {
+    height: 50vw;
+}

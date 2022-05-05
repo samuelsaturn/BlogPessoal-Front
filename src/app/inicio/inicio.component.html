@@ -9,7 +9,7 @@
           <div class="card-body bg-black radius-profile text-center ">
             <img src="{{foto}}" width="250px" height="200px" class="card-profile-img" />
             <h3 class="mb-2 text-light">{{nome}}</h3>
-            <p class="text-align-center text-light mb-1">Biografia</p>
+            <p class="text-align-center text-light mb-1">Biografia:</p>
             <div>
               <small class="text-bio">{{usuario.biografia}}</small>
             </div>
@@ -21,7 +21,8 @@
               </a>
             </div>
 
-            <button class="btn mt-4 mr-2 w-75 rounded-pill neon-blue b-post" data-toggle="modal" data-target="#novaPostagem">
+            <button class="btn mt-4 mr-2 w-75 rounded-pill neon-blue b-post" data-toggle="modal"
+              data-target="#novaPostagem">
               Nova postagem
             </button>
           </div>
@@ -34,17 +35,18 @@
         <div class="card">
           <div class="card-header rounded bg-black b-none">
             <div class="col-md-12">
-              <h1 class="text-pixel font-32 textoneon1 mt-3">Seja bem vinde!</h1>
-              <h4 class="text-pixel textoneon1 mt-3 font-24">O que deseja tomar hoje?</h4>
+              <img class="radius w-100 shadow-bar" src="https://c.tenor.com/xpvGLJHJLYkAAAAC/grillbys-undertale.gif" alt="">
+              <h1 class="text-pixel font-32 textoneon1 mt-4">Seja bem vinde!</h1>
+              <h4 class="text-pixel textoneon1 mt-3 font-24">O que deseja beber hoje?</h4>
             </div>
 
             <!-- Modal -->
-            <div class="modal fade " id="novaPostagem" tabindex="-1" role="dialog"
+            <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog"
               aria-labelledby="TituloModalCentralizado" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered " role="document">
-                <div class="modal-content post bordamodal">
+                <div class="modal-content post bordamodal m-3">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="TituloModalCentralizado">
+                    <h5 class="modal-title text-pixel font-20" id="TituloModalCentralizado">
                       Nova postagem
                     </h5>
                     <button type="button" class="close " data-dismiss="modal" aria-label="Fechar">
@@ -53,7 +55,7 @@
                   </div>
                   <div class="modal-body">
                     <div class="form-group font">
-                      <label for="titulo">Título</label>
+                      <label class="text-light" for="titulo">Título</label>
                       <input [(ngModel)]="postagem.titulo" type="text" class="form-control borda" id="titulo"
                         placeholder="Digite o título" />
                     </div>
@@ -71,34 +73,30 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="texto">Escolha um tema ou
-                        <a data-dismiss="modal" class="white" routerLink="/tema">cadastre um novo</a>:
+                      <label for="texto">Escolha um tema ou 
+                        <a data-dismiss="modal" class="cad-tema textoneon2" routerLink="/tema"> cadastre um novo</a>:
                       </label>
                       <select [(ngModel)]="idTema" (change)="findByIdTema()" name="tema" id="tema "
                         class="form-control borda">
-                        <option selected disabled value="">Temas</option>
+                        <option selected disabled value="tema">Escolha um Tema</option>
                         <option *ngFor="let tema of listaTemas" value="{{ tema.id }}">
                           {{ tema.descricao }}
                         </option>
                       </select>
                     </div>
 
-                    <div class="form-group">
-                      <label for="">O que deseja beber hoje?</label>
-                      <select class="form-control borda" name="bebida" id="bebida">
-                        <option selected disabled value="">Escolha uma bebida</option>
-                        <option value="">Café</option>
-                        <option value="">Chá</option>
-                        <option value="">Coca-Cola</option>
-                      </select>
+                    <div class="form-group font">
+                      <label class="text-light" for="bebida">Título</label>
+                      <input [(ngModel)]="postagem.bebida" type="text" class="form-control borda" id="bebida"
+                        placeholder="O que deseja beber hoje?" />
                     </div>
 
                   </div>
-                  <div class="modal-footer borda">
-                    <button type="button" class="btn cancelar mr-2" data-dismiss="modal">
+                  <div class="modal-footer">
+                    <button type="button" class="btn rounded-pill neon-red mr-2" data-dismiss="modal">
                       Cancelar
                     </button>
-                    <button type="button" class="btn enviar" data-dismiss="modal" (click)="publicar()">
+                    <button type="button" class="btn rounded-pill neon-green" data-dismiss="modal" (click)="publicar()">
                       Publicar
                     </button>
                   </div>
@@ -111,19 +109,20 @@
             <div class="container mb-5 mt-5" id="postagens">
               <nav>
                 <div class="nav nav-pills d-flex justify-content-center" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link bg-pills nav-mb active text-light text-pixel font-10 textoneon3" id="nav-todasPostagens-tab"
-                    data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens"
-                    aria-selected="true">Todas as postagens</a>
-                  <a class="nav-item nav-link nav-mb text-light text-pixel font-10 textoneon3" id="nav-minhasPostagens-tab"
-                    data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens"
-                    aria-selected="false">Minhas postagens</a>
-                  <a class="nav-item nav-link nav-mb text-light text-pixel font-10 textoneon3" id="nav-postagensTema-tab"
-                    data-toggle="tab" href="#postagensTema" role="tab" aria-controls="nav-postagensTema"
-                    aria-selected="false">Postagens por tema</a>
+                  <a class="nav-item nav-link bg-pills nav-mb active text-light text-pixel font-10 textoneon3"
+                    id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
+                    aria-controls="nav-todasPostagens" aria-selected="true">Todas as postagens</a>
+                  <a class="nav-item nav-link nav-mb text-light text-pixel font-10 textoneon3"
+                    id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab"
+                    aria-controls="nav-minhasPostagens" aria-selected="false">Minhas postagens</a>
+                  <a class="nav-item nav-link nav-mb text-light text-pixel font-10 textoneon3"
+                    id="nav-postagensTema-tab" data-toggle="tab" href="#postagensTema" role="tab"
+                    aria-controls="nav-postagensTema" aria-selected="false">Postagens por tema</a>
                 </div>
               </nav>
 
               <div class="tab-content" id="nav-tabContent">
+
                 <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
                   aria-labelledby="nav-todasPostagens-tab">
                   <div class="row d-flex flex-wrap mt-3">
@@ -133,21 +132,21 @@
                           <div class="list-group-item bg-card shadow py-5">
                             <div class="media d-flex flex-column">
                               <div class="row">
-                                  <div class="media-object avatar avatar-md ml-3 mr-3 ">
-                                    <img class="radius-50" src="{{postagem.usuario.foto}}" alt="foto">
+                                <div class="media-object avatar avatar-md ml-3 mr-3 ">
+                                  <img class="radius-50" src="{{postagem.usuario.foto}}" alt="foto">
+                                </div>
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <h4 class="text-light m-0">{{postagem.usuario.nome}}</h4>
+                                    <small class=" text-muted">{{postagem.data | date: 'dd/MM/yyyy'}} às
+                                      {{postagem.data | date:
+                                      'HH:mm'}}</small>
                                   </div>
-                                    <div class="media-body">
-                                      <div class="media-heading">
-                                        <h4 class="text-light m-0">{{postagem.usuario.nome}}</h4>
-                                        <small class=" text-muted">{{postagem.data | date: 'dd/MM/yyyy'}} às
-                                          {{postagem.data | date:
-                                          'HH:mm'}}</small>
-                                      </div>
-                                  </div>
+                                </div>
                               </div>
                               <div class="row">
                                 <div class="d-flex flex-column justify-content-center p-3">
-                                  <div class="font-weight-bold font-mariele-b text-break">
+                                  <div class="font-weight-bold text-break">
                                     <h5 class="mt-2 text-light">{{postagem.titulo}}</h5>
                                   </div>
                                   <div class="text-small text-muted text-break">
@@ -161,10 +160,10 @@
                                       <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
                                         {{postagem.tema.descricao}}</i>
                                     </div>
-                                    <!-- <div class='align-self-end'>
-                                      <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
-                                        {{}}</i>
-                                    </div> -->
+                                    <div class='align-self-end ml-2'>
+                                      <i class="fa fa-coffee radius p-2 bg-gray" aria-hidden="true">
+                                        {{postagem.bebida}}</i>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -184,33 +183,41 @@
                         <div class="list-group card-list-group">
                           <div class="list-group-item bg-card shadow py-5">
                             <div class="d-flex justify-content-end mb-2">
-                              <a class="text-primary mr-3" href=""
+                              <a class="text-pixel font-10 textoneon1 mr-3" href=""
                                 [routerLink]="['/postagem-edit', postagem.id]">Editar</a>
-                              <a class="text-danger" href="" [routerLink]="['/postagem-delete', postagem.id]">Apagar</a>
+                              <a class="text-pixel font-10 textoneon4" href="" [routerLink]="['/postagem-delete', postagem.id]">Apagar</a>
                             </div>
-                            <div class="media">
-                              <div class="media-object avatar avatar-md mr-3 ">
-                                <img class="radius-50" src="{{usuario.foto}}" alt="foto">
+                            <div class="media d-flex flex-column">
+                              <div class="row">
+                                <div class="media-object avatar avatar-md ml-3 mr-3 ">
+                                  <img class="radius-50" src="{{usuario.foto}}" alt="foto">
+                                </div>
+                                <div class="media-body">
+                                  <div class="media-heading">
+                                    <h4 class="text-light m-0">{{usuario.nome}}</h4>
+                                    <small class=" text-muted">{{postagem.data | date: 'dd/MM/yyyy'}} às
+                                      {{postagem.data | date:
+                                      'HH:mm'}}</small>
+                                  </div>
+                                </div>
                               </div>
-                              <div class="media-body">
-                                <div class="media-heading">
-                                  <small class="float-right text-light">{{postagem.data | date: 'dd/MM/yyyy'}} às
-                                    {{postagem.data | date:
-                                    'HH:mm'}}</small>
-                                  <h4 class="text-light">{{usuario.nome}}</h4>
-                                </div>
-                                <div class="font-weight-bold font-mariele-b text-break">
-                                  <h5 class="mt-3 text-light">{{postagem.titulo}}</h5>
-                                </div>
-                                <div class="text-small text-muted text-break">
-                                  <p class="text-bio">{{postagem.texto}}</p>
-                                </div>
-                                <div class="text-muted text-small text-break">
-                                  <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">
-                                </div>
-                                <div class='align-self-end'>
-                                  <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
-                                    {{postagem.tema.descricao}}</i>
+                              <div class="row">
+                                <div class="d-flex flex-column justify-content-center p-3">
+                                  <div class="font-weight-bold text-break">
+                                    <h5 class="mt-2 text-light">{{postagem.titulo}}</h5>
+                                  </div>
+                                  <div class="text-small text-muted text-break">
+                                    <p class="text-bio">{{postagem.texto}}</p>
+                                  </div>
+                                  <div class="text-muted text-small text-break">
+                                    <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">
+                                  </div>
+                                  <div class="d-flex justify-content-start">
+                                    <div class='align-self-end'>
+                                      <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
+                                        {{postagem.tema.descricao}}</i>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -230,29 +237,37 @@
                         <div class="rounded mb-5">
                           <div class="list-group card-list-group">
                             <div class="list-group-item bg-card shadow py-5">
-                              <div class="media">
-                                <div class="media-object avatar avatar-md mr-3 ">
-                                  <img class="radius-50" src="{{postagem.usuario.foto}}" alt="foto">
+                              <div class="media d-flex flex-column">
+                                <div class="row">
+                                  <div class="media-object avatar avatar-md ml-3 mr-3 ">
+                                    <img class="radius-50" src="{{postagem.usuario.foto}}" alt="foto">
+                                  </div>
+                                  <div class="media-body">
+                                    <div class="media-heading">
+                                      <h4 class="text-light m-0">{{postagem.usuario.nome}}</h4>
+                                      <small class=" text-muted">{{postagem.data | date: 'dd/MM/yyyy'}} às
+                                        {{postagem.data | date:
+                                        'HH:mm'}}</small>
+                                    </div>
+                                  </div>
                                 </div>
-                                <div class="media-body">
-                                  <div class="media-heading">
-                                    <small class="float-right text-light">{{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data
-                                      | date:
-                                      'HH:mm'}}</small>
-                                    <h4 class="text-light">{{postagem.usuario.nome}}</h4>
-                                  </div>
-                                  <div class="font-weight-bold font-mariele-b text-break">
-                                    <h5 class="mt-3 text-light">{{postagem.titulo}}</h5>
-                                  </div>
-                                  <div class="text-small text-muted text-break">
-                                    <p class="text-light">{{postagem.texto}}</p>
-                                  </div>
-                                  <div class="text-muted text-small text-break">
-                                    <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">
-                                  </div>
-                                  <div class='align-self-end'>
-                                    <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
-                                      {{tema.descricao}}</i>
+                                <div class="row">
+                                  <div class="d-flex flex-column justify-content-center p-3">
+                                    <div class="font-weight-bold text-break">
+                                      <h5 class="mt-2 text-light">{{postagem.titulo}}</h5>
+                                    </div>
+                                    <div class="text-small text-muted text-break">
+                                      <p class="text-bio">{{postagem.texto}}</p>
+                                    </div>
+                                    <div class="text-muted text-small text-break">
+                                      <img class="w-100 mb-3 rounded" src="{{postagem.foto}}" alt="">
+                                    </div>
+                                    <div class="d-flex justify-content-start">
+                                      <div class='align-self-end'>
+                                        <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
+                                          {{tema.descricao}}</i>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -262,4 +277,3 @@
                       </div>
                     </div>
                   </div>
-                </div>

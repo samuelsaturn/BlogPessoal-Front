@@ -20,7 +20,6 @@ export class InicioComponent implements OnInit {
   foto = environment.foto
   id = environment.id
   
-
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
 
@@ -30,6 +29,10 @@ export class InicioComponent implements OnInit {
 
   usuario: Usuario = new Usuario()
   idUsuario = environment.id
+
+  
+  contador = String 
+  
 
   constructor(
     public route: Router,
@@ -92,4 +95,9 @@ export class InicioComponent implements OnInit {
       this.postagem = new Postagem();
     })
   }
+
+   limite_textarea(valor: string) {
+    const quant = 50;
+    const total = valor.length;
+}
 }

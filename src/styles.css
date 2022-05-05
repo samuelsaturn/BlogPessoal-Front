@@ -1,4 +1,300 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Roboto+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800&display=swap');
+
+a {
+    text-decoration: none;
+}
+
+.text-pixel {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.font-32 {
+    font-size: 32px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-24 {
+    font-size: 22px;
+}
+
+.font-10 {
+    font-size: 10px;
+}
+
+.textoneon1 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 2vw #1100ff, 0 0 2vw #1100ff, 0 0 2vw #1100ff;
+}
+
+.textoneon2 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 2vw #f1b, 0 0 2vw #f1b, 0 0 2vw #f1b;
+}
+
+.textoneon3 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 1vw rgb(24, 250, 4), 0 0 1vw rgb(24, 250, 4), 0 0 1vw rgb(24, 250, 4);
+}
+
+.textoneon4 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 1vw #FF3131, 0 0 1vw #FF3131, 0 0 1vw #FF3131;
+}
+
+body {
+    margin-top: 20px;
+    background: #eee;
+}
+
+.card {
+    background-color: #fff;
+    border: 0 solid #eee;
+    border-radius: 8px;
+}
+
+.card {
+    margin-bottom: 30px;
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px 0 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.card-profile .card-header {
+    height: 9rem;
+    background-size: cover;
+    background-position: center center
+}
+
+.card-profile-img {
+    max-width: 8rem;
+    margin-top: -6rem;
+    margin-bottom: 1rem;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    height: 8rem;
+}
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+    display: inline-block;
+    background: #ced4da no-repeat center/cover;
+    position: relative;
+    text-align: center;
+    color: #868e96;
+    font-weight: 600;
+    vertical-align: bottom
+}
+
+.avatar.avatar-md {
+    width: 3rem;
+    height: 3rem
+}
+
+.avatar.avatar-lg {
+    width: 4rem;
+    height: 4rem
+}
+
+.avatar.avatar-xl {
+    width: 5rem;
+    height: 5rem
+}
+
+.avatar.avatar-xxl {
+    width: 7rem;
+    height: 7rem;
+    min-width: 7rem
+}
+
+.card-header:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.card-header {
+    padding: 1rem 1.25rem;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header {
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+.radius-50 {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.mt {
+    position: relative;
+    bottom: auto;
+}
+
+.bg-gray {
+    background-color: rgb(207, 199, 199);
+}
+
+.bg-card {
+    background-color: #1b1d1d;
+}
+
+.radius {
+    border-radius: 8px;
+
+}
+
+.radius-profile {
+    border-radius: 0 0 8px 8px !important;
+}
+
+.fa-ellipsis-h {
+    font-size: 1.250rem;
+    margin-bottom: 0;
+}
+
+.post {
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    background: #131515e1;
+    backdrop-filter: blur (10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.font {
+    color: black;
+    font-family: 'Merriweather', serif;
+    width: 400;
+}
+
+.borda {
+    border-radius: 0 10px 0 10px !important;
+}
+
+.modal-footer {
+    border-radius: 0 0 10px 10px;
+}
+
+.bordamodal {
+    border-radius: 20px;
+}
+
+.text-bio {
+    color: rgb(201, 201, 201);
+}
+
+.bg-black {
+    background-color: #131515;
+}
+
+.cancelar {
+    background-color: #d66da0;
+    ;
+    color: white;
+}
+
+.enviar {
+    background-color: #98c589;
+    color: white
+}
+
+.cad-tema {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    color: #f1b;
+    margin-left: 2px;
+}
+
+.btnpost {
+    background-color: #e2a3c1;
+}
+
+.neon-blue {
+    text-decoration: none;
+    color: #1F51FF !important;
+    border: #1F51FF 3px solid !important;
+
+    box-shadow: inset 0 0 16px 0 #1F51FF, 0 0 16px 0 #1F51FF !important;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 16px 0, lightness) !important;
+}
+
+.neon-red {
+    text-decoration: none;
+    color: #FF3131 !important;
+    border: #FF3131 2px solid !important;
+
+    box-shadow: inset 0 0 10px 0 #FF3131, 0 0 10px 0 #FF3131 !important;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 10px 0, lightness) !important;
+}
+
+.neon-red:hover {
+    text-decoration: none;
+    color: #FF3131 !important;
+    border: #FF3131 2px solid !important;
+
+    box-shadow: inset 0 0 32px 0 #FF3131, 0 0 32px 0 #FF3131 !important;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness) !important;
+}
+
+.neon-green {
+    text-decoration: none;
+    color: #39ff14 !important;
+    border: #39ff14 2px solid !important;
+
+    box-shadow: inset 0 0 10px 0 #39ff14, 0 0 10px 0 #39ff14 !important;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 10px 0, lightness) !important;
+}
+
+.neon-green:hover {
+    text-decoration: none;
+    color: #39ff14 !important;
+    border: #39ff14 2px solid !important;
+
+    box-shadow: inset 0 0 32px 0 #39ff14, 0 0 32px 0 #39ff14 !important;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness) !important;
+}
+
+.b-post:hover {
+    text-decoration: none;
+    color: #1F51FF !important;
+    border: #1F51FF 3px solid !important;
+    width: 150px;
+
+    box-shadow: inset 0 0 32px 0 #1F51FF, 0 0 32px 0 #1F51FF !important;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness) !important;
+}
+
+.neon-blue:hover {
+    text-decoration: none;
+    color: #1F51FF !important;
+    border: #1F51FF 3px solid !important;
+   
+
+    box-shadow: inset 0 0 32px 0 #1F51FF, 0 0 32px 0 #1F51FF !important;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness) !important;
+}
+
+.shadow {
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px !important;
+    border-radius: 12px !important;
+}
+
+a.active {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgb(24, 250, 4);
+}
+
+.b-none {
+    border: none;
+}

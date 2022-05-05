@@ -1,0 +1,13 @@
+.height {
+    min-height: 100vh;
+}
+
+#img-bg {
+    background-image: url(https://wallpaperaccess.com/full/4224706.jpg);
+}
+
+.bg {
+    background-color: #131515bd;
+    padding: 30px;
+    border-radius: 16px 0 16px 0;
+}

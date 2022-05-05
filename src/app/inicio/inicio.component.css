@@ -1,3 +1,4 @@
+
 .img-bg {
     background-image: url("https://i.pinimg.com/originals/2a/e7/49/2ae74984da2f572285f62201f032dac6.jpg");
 }
@@ -8,6 +9,10 @@
 
 .font-32 {
     font-size: 32px;
+}
+
+.font-20 {
+    font-size: 20px;
 }
 
 .font-24 {
@@ -34,6 +39,12 @@
     color: #fff;
     font-family: 'Press Start 2P', cursive;
     text-shadow: 1vw 1vw 1vw #000, 0 0 1vw rgb(24, 250, 4), 0 0 1vw rgb(24, 250, 4), 0 0 1vw rgb(24, 250, 4);
+}
+
+.textoneon4 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 1vw 1vw 1vw #000, 0 0 1vw #FF3131, 0 0 1vw #FF3131, 0 0 1vw #FF3131;
 }
 
 body {
@@ -151,9 +162,9 @@ body {
 }
 
 .post {
-    color: rgb(0, 0, 0);
+    color: #fff;
     font-family: 'Merriweather', serif;
-    background: #c1bce7f3;
+    background: #131515e1;
     backdrop-filter: blur (10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -165,7 +176,11 @@ body {
 }
 
 .borda {
-    border-radius: 10px;
+    border-radius: 0 10px 0 10px;
+}
+
+.modal-footer {
+    border-radius: 0 0 10px 10px;
 }
 
 .bordamodal {
@@ -191,9 +206,11 @@ body {
     color: white
 }
 
-.white {
-    color: #d66da0;
-    font-weight: 700;
+.cad-tema {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 9px;
+    color: #f1b;
+    margin-left: 2px;
 }
 
 .btnpost {
@@ -208,6 +225,42 @@ body {
 
     box-shadow: inset 0 0 16px 0 #1F51FF, 0 0 16px 0 #1F51FF;
     text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 16px 0, lightness);
+}
+
+.neon-red {
+    text-decoration: none;
+    color: #FF3131;
+    border: #FF3131 2px solid;
+
+    box-shadow: inset 0 0 10px 0 #FF3131, 0 0 10px 0 #FF3131;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 10px 0, lightness);
+}
+
+.neon-red:hover {
+    text-decoration: none;
+    color: #FF3131;
+    border: #FF3131 3px solid;
+
+    box-shadow: inset 0 0 32px 0 #FF3131, 0 0 32px 0 #FF3131;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness);
+}
+
+.neon-green {
+    text-decoration: none;
+    color: #39ff14;
+    border: #39ff14 2px solid;
+
+    box-shadow: inset 0 0 10px 0 #39ff14, 0 0 10px 0 #39ff14;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 10px 0, lightness);
+}
+
+.neon-green:hover {
+    text-decoration: none;
+    color: #39ff14;
+    border: #39ff14 3px solid;
+
+    box-shadow: inset 0 0 32px 0 #39ff14, 0 0 32px 0 #39ff14;
+    text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3, 0 0 32px 0, lightness);
 }
 
 .b-post:hover {
@@ -232,6 +285,10 @@ a.active {
 
 .b-none {
     border: none;
+}
+
+.shadow-bar {
+    box-shadow: rgba(37, 102, 158, 0.48) 6px 5px 16px 5px, rgba(194, 243, 245, 0.8) -6px -5px 16px -5px;
 }
 
 @media(max-width: 750px) {
