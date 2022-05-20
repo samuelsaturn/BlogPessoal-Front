@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/model/Usuario';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -22,20 +23,18 @@ export class UsuarioEditComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-
+    private alert: AlertasService,
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
 
     if(environment.token == ''){
-      alert('Sua sessão expirou, faça o login novamente')
+      this.alert.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/entrar'])
-      console.log(this.confirmSenha)
     }
     this.idUsuario = this.route.snapshot.params['id']
-    this.findByIdUsuario(this.idUsuario)
-    
+    this.findByIdUsuario(this.idUsuario) 
   }
 
   confirmSenha(event: any) {
@@ -51,7 +50,7 @@ export class UsuarioEditComponent implements OnInit {
 
 
     if (this.usuario.senha != this.confirmarSenha) {
-      alert("As senhas estão diferentes")
+      this.alert.showAlertDanger("As senhas estão diferentes")
 
     } else {
       this.authService.atualizar(this.usuario).subscribe({
@@ -60,14 +59,15 @@ export class UsuarioEditComponent implements OnInit {
           environment.nome = ""
           environment.foto = ""
           environment.senha = ""
+          environment.biografia = ""
           environment.token = ""
           environment.id = 0
           this.router.navigate(["/entrar"])
-          alert("Usuario atualizado com sucesso!")
+          this.alert.showAlertSuccess("Usuario atualizado com sucesso!")
         },
         error: erro => {
           if (erro.status == 400) {
-            alert("Favor preencher os campos caso queira atualizar.")
+            this.alert.showAlertWarning("Favor preencher os campos caso queira atualizar.")
           }
         },
       });

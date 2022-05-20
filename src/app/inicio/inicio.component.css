@@ -3,6 +3,10 @@
     background-image: url("https://i.pinimg.com/originals/2a/e7/49/2ae74984da2f572285f62201f032dac6.jpg");
 }
 
+body {
+    padding: none;
+}
+
 .text-pixel {
     font-family: 'Press Start 2P', cursive;
 }

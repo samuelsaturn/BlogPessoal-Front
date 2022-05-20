@@ -7,14 +7,14 @@
               background-image: url(../../assets/img/background.webp);
             " class="card-header"></div>
           <div class="card-body bg-black radius-profile text-center ">
-            <img src="{{foto}}" width="250px" height="200px" class="card-profile-img" />
+            <img src="{{ foto }}" width="250px" height="200px" class="card-profile-img" />
             <h3 class="mb-2 text-light">{{nome}}</h3>
             <p class="text-align-center text-light mb-1">Biografia:</p>
             <div>
               <small class="text-bio">{{usuario.biografia}}</small>
             </div>
             <div class="mt-2">
-              <a class="text-light" [routerLink]="['/usuario-edit', id]">
+              <a class="text-light textoneon1 font-10" [routerLink]="['/usuario-edit', id]">
                 Editar Usuário <a class="text-secondary" [routerLink]="['/usuario-edit', id]">
                   <i class="fa fa-pencil ml-1" aria-hidden="true"></i>
                 </a>
@@ -35,7 +35,8 @@
         <div class="card">
           <div class="card-header rounded bg-black b-none">
             <div class="col-md-12">
-              <img class="radius w-100 shadow-bar" src="https://c.tenor.com/xpvGLJHJLYkAAAAC/grillbys-undertale.gif" alt="">
+              <img class="radius w-100 shadow-bar" src="https://c.tenor.com/xpvGLJHJLYkAAAAC/grillbys-undertale.gif"
+                alt="">
               <h1 class="text-pixel font-32 textoneon1 mt-4">Seja bem vinde!</h1>
               <h4 class="text-pixel textoneon1 mt-3 font-24">O que deseja beber hoje?</h4>
             </div>
@@ -73,7 +74,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="texto">Escolha um tema ou 
+                      <label for="texto">Escolha um tema ou
                         <a data-dismiss="modal" class="cad-tema textoneon2" routerLink="/tema"> cadastre um novo</a>:
                       </label>
                       <select [(ngModel)]="idTema" (change)="findByIdTema()" name="tema" id="tema "
@@ -125,8 +126,19 @@
 
                 <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
                   aria-labelledby="nav-todasPostagens-tab">
+
+                  <div class="row d-flex justify-content-center mt-5 mb-5">
+                    <div class="col-md-7">
+                      <div class="form-group">
+                        <input id="titulo" class="form-control borda" type="text"
+                          placeholder="Digite um titulo de postagem para pesquisar" [(ngModel)]="tituloPost"
+                          (keyup)="findByTituloPostagem()">
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="row d-flex flex-wrap mt-3">
-                    <div class="col-md-12" *ngFor="let postagem of listaPostagens">
+                    <div class="col-md-12" *ngFor="let postagem of listaPostagens | orderBy : key : reverse">
                       <div class="rounded mb-5">
                         <div class="list-group card-list-group">
                           <div class="list-group-item bg-card shadow py-5">
@@ -178,14 +190,15 @@
                 <div class="tab-pane fade" id="minhasPostagens" role="tabpanel"
                   aria-labelledby="nav-minhasPostagens-tab">
                   <div class="row d-flex flex-wrap mt-3">
-                    <div class="col-md-12" *ngFor="let postagem of usuario.postagem">
+                    <div class="col-md-12" *ngFor="let postagem of usuario.postagem | orderBy : key : reverse">
                       <div class="rounded mb-5">
                         <div class="list-group card-list-group">
                           <div class="list-group-item bg-card shadow py-5">
                             <div class="d-flex justify-content-end mb-2">
                               <a class="text-pixel font-10 textoneon1 mr-3" href=""
                                 [routerLink]="['/postagem-edit', postagem.id]">Editar</a>
-                              <a class="text-pixel font-10 textoneon4" href="" [routerLink]="['/postagem-delete', postagem.id]">Apagar</a>
+                              <a class="text-pixel font-10 textoneon4" href=""
+                                [routerLink]="['/postagem-delete', postagem.id]">Apagar</a>
                             </div>
                             <div class="media d-flex flex-column">
                               <div class="row">
@@ -217,6 +230,10 @@
                                       <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
                                         {{postagem.tema.descricao}}</i>
                                     </div>
+                                    <div class='align-self-end ml-2'>
+                                      <i class="fa fa-coffee radius p-2 bg-gray" aria-hidden="true">
+                                        {{postagem.bebida}}</i>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -230,10 +247,21 @@
 
 
                 <div class="tab-pane fade" id="postagensTema" role="tabpanel" aria-labelledby="nav-postagensTema-tab">
+
+                  <div class="row d-flex justify-content-center mt-5 mb-5">
+                    <div class="col-md-7">
+                      <div class="form-group">
+                        <input type="text" class="form-control borda" id="titulo"
+                          placeholder="Digite um tema para pesquisar" [(ngModel)]="descricaoTema"
+                          (keyup)="findByDescricaoTema()">
+                      </div>
+                    </div>
+                  </div>
+
                   <div class="row d-flex flex-wrap mt-3">
                     <div class="col-md-12" *ngFor="let tema of listaTemas">
                       <h2 class="text-center text-light text-pixel textoneon2 mb-4 mt-2">{{ tema.descricao }}</h2>
-                      <div *ngFor="let postagem of tema.postagem" class="text-start">
+                      <div *ngFor="let postagem of tema.postagem | orderBy : key : reverse" class="text-start">
                         <div class="rounded mb-5">
                           <div class="list-group card-list-group">
                             <div class="list-group-item bg-card shadow py-5">
@@ -266,6 +294,10 @@
                                       <div class='align-self-end'>
                                         <i class="fa fa-tags radius p-2 bg-gray" aria-hidden="true">
                                           {{tema.descricao}}</i>
+                                      </div>
+                                      <div class='align-self-end ml-2'>
+                                        <i class="fa fa-coffee radius p-2 bg-gray" aria-hidden="true">
+                                          {{postagem.bebida}}</i>
                                       </div>
                                     </div>
                                   </div>

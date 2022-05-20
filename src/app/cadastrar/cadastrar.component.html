@@ -10,27 +10,27 @@
 
                     <form>
                         <div class="form-group">
-                            <input [(ngModel)]="usuario.nome" class="form-control" type="text" placeholder="Nome*" name="nome" >
+                            <input [(ngModel)]="usuario.nome" class="form-control borda" type="text" placeholder="Nome*" name="nome" >
                         </div>
 
                         <div class="form-group">
-                            <input [(ngModel)]="usuario.usuario" class="form-control" type="email" placeholder="E-mail*" name="email">
+                            <input [(ngModel)]="usuario.usuario" class="form-control borda" type="email" placeholder="E-mail*" name="email">
                         </div>
 
                         <div class="form-group">
-                            <input (input)="confirmSenha($event)" class="form-control" type="password" placeholder="Senha* (mínimo 6 caracteres)" name="senha">
+                            <input (input)="confirmSenha($event)" class="form-control borda" type="password" placeholder="Senha* (mínimo 6 caracteres)" name="senha">
                         </div>
 
                         <div class="form-group">
-                            <input [(ngModel)]="usuario.senha" class="form-control" type="password" placeholder="Confirmar senha*" name="ConfirmSenha">
+                            <input [(ngModel)]="usuario.senha" class="form-control borda" type="password" placeholder="Confirmar senha*" name="ConfirmSenha">
                         </div>
 
                         <div class="form-group">
-                            <input [(ngModel)]="usuario.foto" class="form-control" type="text" placeholder="Link da Foto (opcional)" name="foto">
+                            <input [(ngModel)]="usuario.foto" class="form-control borda" type="text" placeholder="Link da Foto (opcional)" name="foto">
                         </div>
                         
                         <div>
-                            <select class="form-control" name="selecionar" id="selecionar" (change)="tipoUser($event)" name="tipo">
+                            <select class="form-control borda" name="selecionar" id="selecionar" (change)="tipoUser($event)" name="tipo">
                                 <option value="" selected disabled>Selecione um tipo de usuário*</option>
                                 <option value="adm">Administrador</option>
                                 <option value="normal">Normal</option>

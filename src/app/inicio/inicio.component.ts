@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
-import { UsuarioLogin } from '../model/UsuarioLogin';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -19,33 +19,38 @@ export class InicioComponent implements OnInit {
   nome = environment.nome
   foto = environment.foto
   id = environment.id
-  
+
   postagem: Postagem = new Postagem()
   listaPostagens: Postagem[]
+  tituloPost: string
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  descricaoTema: string
 
   usuario: Usuario = new Usuario()
   idUsuario = environment.id
 
-  
-  contador = String 
-  
+  contador = String
+
+  key = 'data'
+  reverse = true
+
 
   constructor(
     public route: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alert: AlertasService,
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
 
-    if(environment.token == ''){
-      alert('Sua sessão expirou, faça o login novamente')
+    if (environment.token == '') {
+      this.alert.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.route.navigate(['/entrar'])
     }
     this.getAllTemas();
@@ -53,15 +58,27 @@ export class InicioComponent implements OnInit {
     this.authService.refreshToken();
     this.temaService.refreshToken();
     this.findByIdUsuario();
+
+    if(this.foto === null){
+      this.foto = "https://static.vecteezy.com/ti/vetor-gratis/p1/1991212-avatar-perfil-rosa-neon-icon-brick-wall-background-color-neon-vector-icon-vetor.jpg"
+    }
+
+    console.log(environment.foto)
   }
 
-  findByIdUsuario(){
+  findByIdUsuario() {
     this.authService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
       this.usuario = resp
     })
   }
 
-  getAllTemas(){
+  getAllTemas() {
+    this.temaService.getAllTema().subscribe((resp: Tema[]) => {
+      this.listaTemas = resp
+    })
+  }
+
+  findAllTemas(){
     this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
@@ -69,26 +86,26 @@ export class InicioComponent implements OnInit {
 
   findByIdTema() {
     this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-      this.tema= resp
+      this.tema = resp
     })
   }
 
-  getAllPostagens(){
+  getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
     })
   }
 
-  publicar(){
+  publicar() {
     this.tema.id = this.idTema
-    this.postagem.tema =  this.tema
+    this.postagem.tema = this.tema
 
     this.usuario.id = this.idUsuario
-    this.postagem.usuario =  this.usuario
+    this.postagem.usuario = this.usuario
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert("Postagem realizada com sucesso!");
+      this.alert.showAlertSuccess("Postagem realizada com sucesso!");
       this.getAllPostagens();
       this.getAllTemas();
       this.findByIdUsuario();
@@ -96,8 +113,22 @@ export class InicioComponent implements OnInit {
     })
   }
 
-   limite_textarea(valor: string) {
-    const quant = 50;
-    const total = valor.length;
-}
+  findByTituloPostagem() {
+    if (this.tituloPost == '') {
+      this.getAllPostagens()
+    } else {
+      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[]) =>
+        this.listaPostagens = resp)
+    }
+  }
+
+  findByDescricaoTema() {
+    if (this.descricaoTema == '') {
+      this.findAllTemas()
+    } else {
+      this.temaService.getByNomeTema(this.descricaoTema).subscribe((resp: Tema[]) => {
+        this.listaTemas = resp
+      })
+    }
+  }
 }
